@@ -23,13 +23,9 @@
         <p>{{item.weight}} x {{item.reps}} x {{item.sets}}</p>
       </ion-item>
       <ion-item-options side="end">
-        <!-- <ion-item-option (click)="editItem(item, i)" color="secondary">
-          <ion-icon name="create"></ion-icon>
-          <p>  Edit  </p>
-        </ion-item-option> -->
-        <!-- <ion-item-option (click)="shareItem(item, i)" color="success">
+        <ion-item-option (click)="shareItem(item, i)" color="success">
           <ion-icon slot="icon-only" name="share-social"></ion-icon>
-        </ion-item-option> -->
+        </ion-item-option>
         <ion-item-option (click)="removeItem(item, i)" color="danger">
           <ion-icon slot="icon-only" name="close"></ion-icon>
         </ion-item-option>

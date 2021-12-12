@@ -16,7 +16,7 @@ import { IonRouterOutlet } from '@ionic/angular';
 export class Tab2Page {
   items = [];
   errorMessage : string;
-  //variables such a title and items
+
   title = "Liftrack";
   fromModal: any;
 
@@ -63,28 +63,20 @@ export class Tab2Page {
     this.loadItems();
   }
 
-   /***
-   * This function returns the list of items
-   * This calls dataservice getItems()
-   */
+
    loadItems () {
     return this.dataService.getItems().subscribe(
                           items => this.items = items,
                           error => this.errorMessage = <any>error);
   }
 
-  /***
-   * This function adds the new exercise item to the list
-   */
+
   addItem() {
     console.log("Adding Item");
     this.inputDialogService.showPrompt();
   }
 
-/***
-   * This function removes the selected exercise from the list of items
-   * splice() is used to remove item from the list of items
-   */  
+
   removeItem(item, index){
     console.log("Removed", item, index)
     const toast = this.toastCtrl.create({
@@ -97,9 +89,6 @@ export class Tab2Page {
     this.dataService.removeItem(item);
   }
 
-/***
-   * This function share the selected item
-   */  
  shareItem(item, index){
   console.log("Sharing item - ", item, index)
   const toast = this.toastCtrl.create({
@@ -119,9 +108,7 @@ export class Tab2Page {
 }
 
 
-  /***
-   * This function edits the selected item
-   */  
+
  editItem(item, index){
   console.log("Editing ", item, index)
   const toast = this.toastCtrl.create({
