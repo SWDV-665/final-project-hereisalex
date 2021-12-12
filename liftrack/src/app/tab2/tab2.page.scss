@@ -1,0 +1,21 @@
+.placeholder-text {
+    color: white;
+    text-align: center;
+    margin-top: 200px;
+    background-color: #2dd36f;
+    padding: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.title-bar {
+    box-shadow: inset 0px 0px 10px 0px #282828!important;
+    padding: 27px;
+    color: white;
+    background-color: rgb(92, 92, 92);
+    position: fixed;
+    z-index: -1;
+}

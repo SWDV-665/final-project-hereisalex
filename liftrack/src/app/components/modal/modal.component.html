@@ -1,0 +1,49 @@
+<ion-header>
+  <hr>
+  <ion-buttons>
+    <ion-button class="cancel-button" (click)="_dismiss()">
+      Cancel
+    </ion-button>
+  </ion-buttons>
+  <ion-toolbar class="modal-toolbar">
+    <ion-title size="large" >{{item.name}}</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-container">
+  <ion-list lines="inset">
+    <ion-item class="date-container">
+        <ion-datetime class="date" displayFormat="MMM DD, YYYY" value={{item.date}}></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <h2>Weight</h2>
+      <h2 slot="end">{{item.weight}}</h2>
+    </ion-item>
+    <ion-item>
+      <h2>Reps</h2>
+      <h2 slot="end">{{item.reps}}</h2>
+    </ion-item>
+    <ion-item>
+      <h2>Sets</h2>
+      <h2 slot="end">{{item.sets}}</h2>
+    </ion-item>
+
+  </ion-list>
+<div *ngIf="item.notes" class="notes-container">
+  <h1 class="notes-header">Notes</h1>
+  <p class="notes-content">{{item.notes}}</p>
+</div>
+<div ng-if class="button-container">
+    <ion-button color="warning" (click)="editItem(item, i)" class="edit-buttons">
+      <ion-icon slot="start" name="pencil"></ion-icon>
+      Edit
+    </ion-button>
+    <ion-button color="success" (click)="removeItem(item, i)" class="edit-buttons">
+      <ion-icon slot="start" name="trash"></ion-icon>
+      Delete
+    </ion-button>
+    
+  </div>
+  
+</ion-content>

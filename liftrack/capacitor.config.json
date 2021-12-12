@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "liftrack",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

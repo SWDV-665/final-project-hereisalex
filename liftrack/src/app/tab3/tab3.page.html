@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title size="large" class="ion-text-center">
+      Liftrack
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="addWeight()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <h2 (click)="addWeight()" class="placeholder-text ion-text-center ion-padding" text-center *ngIf="weights.length===0">
+    Use this tab to keep track of your body weight.
+  </h2>
+  <ion-list class="list" lines="full" *ngIf="weights.length > 0">
+    <ion-item-sliding  *ngFor="let weight of weights; let i = index">
+      <ion-item>
+        <ion-label>{{weight.weight}}</ion-label>
+        <ion-datetime class="date" displayFormat="MMM DD, YYYY" value={{weight.date}}></ion-datetime>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="Weight(weight, i)" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

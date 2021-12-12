@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title size="large" class="ion-text-center">
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <h2 (click)="addItem()" class="placeholder-text ion-text-center ion-padding" text-center *ngIf="items.length===0">
+    Use this tab to start a new workout session.
+  </h2>
+  <!-- List of items from the current date -->
+  <ion-list class="list" lines="full" *ngIf="items.length > 0">
+    <ion-item-sliding  *ngFor="let item of items; let i = index">
+      <ion-item *ngIf="item.date.split('T')[0] == today" button (click)="_openModal(item, i)" detail>
+        <ion-label>{{item.name}}</ion-label>
+        <p>{{item.weight}} x {{item.reps}} x {{item.sets}}</p>
+      </ion-item>
+      <ion-item-options side="end">
+        <!-- <ion-item-option (click)="editItem(item, i)" color="secondary">
+          <ion-icon name="create"></ion-icon>
+          <p>  Edit  </p>
+        </ion-item-option> -->
+        <!-- <ion-item-option (click)="shareItem(item, i)" color="success">
+          <ion-icon slot="icon-only" name="share-social"></ion-icon>
+        </ion-item-option> -->
+        <ion-item-option (click)="removeItem(item, i)" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+    
+</ion-content>

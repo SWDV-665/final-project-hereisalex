@@ -1,0 +1,37 @@
+.edit-buttons {
+    width:40%;
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    --border-radius: 50px;
+}
+.button-container {
+    display: inline-block;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.notes-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.date {
+    font-size: 20px;
+}
+
+.cancel-button {
+    margin-left: 10px;
+}
+
+.modal-toolbar {
+    padding-bottom: 10px;
+    border-style: none;
+    background: white!important;
+}
+
+.content-container {
+    border-style: none;
+}

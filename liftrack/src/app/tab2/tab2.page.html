@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title size="large" class="ion-text-center">
+      Liftrack
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <h2 (click)="addItem()" class="placeholder-text ion-text-center ion-padding" text-center *ngIf="items.length===0">
+    Use this tab to keep track of all exercises.
+  </h2>
+  <ion-list class="list" lines="full" *ngIf="items.length > 0">
+    <ion-item-sliding  *ngFor="let item of items; let i = index">
+      <ion-item button (click)="_openModal(item, i)" detail>
+        <ion-label>{{item.name}}</ion-label>
+        <p>{{item.weight}} x {{item.reps}} x {{item.sets}}</p>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="removeItem(item, i)" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
